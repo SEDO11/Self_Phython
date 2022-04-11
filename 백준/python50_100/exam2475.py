@@ -1,7 +1,8 @@
 #검증수
 
-n = int(input())
-list_a = [0, 1]
-for i in range(2, n+1):
-    list_a.append(list_a[i-1] + list_a[i-2])
-print(list_a[n])
+a = list(map(int, input().split()))
+result = 0
+for i in a:
+    result += i*i
+result %= 10
+print(result)
