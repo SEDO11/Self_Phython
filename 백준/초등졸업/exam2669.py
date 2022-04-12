@@ -3,10 +3,10 @@
 list_xy = []
 cnt = 0
 
-while cnt < 4:
+while cnt < 4: # 4번 반복
     x1, y1, x2, y2 = list(map(int, input().split()))
     
-    for i in range(x1, x2):
+    for i in range(x1, x2): # 각 좌표 마다 리스트에 저장
         for j in range(y1, y2):
             list_xy.append([i, j])
     cnt += 1
