@@ -3,16 +3,12 @@ import sys
 input = sys.stdin.readline 
 
 n, k = map(int, input().split())
-list_wv = []
-result_w = 0
-result_v = 0
-for _ in range(n):
-    list_wv.append(list(map(int, input().split())))
-list_wv.sort(key=lambda x: (x[0], -x[1])) #첫번째 인덱스 오름차순, 두 번째 인덱스 내림차순
-for i in range(n):
-    result_w += int(list_wv[i][0])
-    if result_w > k:
-        break
-    else :
-        result_v += int(list_wv[i][1])
-print(result_v)
+table = [0] * (k+1) # 최대 무게 범위 만큼 리스트  생성
+for _ in range(n): 
+    w, v = map(int, input().split())
+    for j in range(k, 0, -1):
+        if j + w <= k and table[j] != 0: # 무게를 더했을 때 7 이하면서 가치가 0이 아니면 합친다.
+            table[j+w] = max(table[j+w], table[j] + v)           
+    if w <= k:
+        table[w] = max(table[w], v) # table[w] == 0
+print(max(table))
