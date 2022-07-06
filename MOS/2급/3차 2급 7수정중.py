@@ -1,19 +1,19 @@
 def solution(num_apple, num_carrot, k):
     answer = 0
-    
+    # 10 5 4
     if num_apple < num_carrot * 3:
         answer = num_apple // 3
     else:
         answer = num_carrot    
 
-    num_apple -= answer * 3
-    num_carrot -= answer
+    num_apple -= answer * 3 # 1
+    num_carrot -= answer # 2
 
     i = 0
     while k - (num_apple + num_carrot + i) > 0:
         if i % 4 == 0:
             answer += 1
-        i = i + 1
+            i = i + 1
         
     return answer
 

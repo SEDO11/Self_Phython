@@ -1,9 +1,17 @@
 #다음과 같이 import를 사용할 수 있습니다.
 #import math
 
+from re import I
+
+
 def solution(scores):
     #여기에 코드를 작성해주세요.
+    scores.sort()
     answer = 0
+    for i in range(len(scores)):
+        if i > 0 and i < len(scores)-1:
+            answer += scores[i]
+    answer = answer // (len(scores)-2)
     return answer
 
 #아래는 테스트케이스 출력을 해보기 위한 코드입니다.

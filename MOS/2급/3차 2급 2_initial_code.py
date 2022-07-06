@@ -2,11 +2,11 @@ def func_a(current_grade, last_grade, rank, max_diff_grade):
     arr_length = len(current_grade)
     count = 0
     for i in range(arr_length):
-        if current_grade[i] >= 80 and rank[i] <= arr_length // 10:
+        if current_grade[i] >= 80 and rank[i] <= arr_length // 10: # 1
             count += 1
-        elif current_grade[i] >= 80 and rank[i] == 1:
+        elif current_grade[i] >= 80 and rank[i] == 1: #2
             count += 1
-        elif max_diff_grade > 0 and max_diff_grade == current_grade[i] - last_grade[i]:
+        elif max_diff_grade > 0 and max_diff_grade == current_grade[i] - last_grade[i]: #3
             count += 1
     return count
 
@@ -26,9 +26,9 @@ def func_c(current_grade, last_grade):
     return max_diff_grade
 
 def solution(current_grade, last_grade):
-    rank = func_@@@(@@@)
-    max_diff_grade = func_@@@(@@@)
-    answer = func_@@@(@@@)
+    rank = func_b(current_grade)
+    max_diff_grade = func_c(current_grade, last_grade)
+    answer = func_a(current_grade, last_grade, rank, max_diff_grade)
     return answer
 
 #아래는 테스트케이스 출력을 해보기 위한 코드입니다.

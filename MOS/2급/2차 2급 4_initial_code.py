@@ -2,9 +2,11 @@
 #import math
 
 def solution(words):
-    #여기에 코드를 작성해주세요.
     answer = ''
-    return answer
+    for word in words:
+        if len(word) >= 5:
+            answer += word
+    return 'empty' if len(answer) == 0 else answer
 
 #아래는 테스트케이스 출력을 해보기 위한 코드입니다.
 words1 = ["my", "favorite", "color", "is", "violet"]
