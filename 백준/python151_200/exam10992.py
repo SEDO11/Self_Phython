@@ -1,9 +1,0 @@
-#별찍기
-import sys
-
-n = int(sys.stdin.readline())
-print(" "*(n-1)+"*")
-for i in range(1, n-1):
-    print((" "*(n-1-i)+"*")+(" "*(2*i-1)+"*"))
-if n > 1:
-    print("*"*(n*2-1))
