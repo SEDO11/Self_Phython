@@ -10,7 +10,8 @@ while n > 1:
         n /= k
         cnt += 1
     else:
-        n -= 1
+        cnt += int(n%k)
+        n -= n%k
 etime = time.time()
 print(cnt)
 print('{:.3f}s'.format(etime - stime))
