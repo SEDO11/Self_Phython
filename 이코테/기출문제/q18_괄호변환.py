@@ -1,4 +1,3 @@
-# 균형잡힌 괄호 문자열인지 체크하는 함수
 def isbalanced(s):
 	chk=0
 	for c in s:
@@ -8,7 +7,6 @@ def isbalanced(s):
 	if chk==0: return True
 	else: return False
 
-# 올바른 괄호 문자열인지 체크하는 함수
 def iscorrect(s):
 	stack=[]
 	stack.append(s[0])
@@ -23,12 +21,10 @@ def iscorrect(s):
 
 def solution(p):
 	answer = ''
-	u=""
-	v=""
-	#빈 문자열이나 올바른 괄호 문자열은 그대로 반환
+	u=''
+	v=''
 	if len(p)==0 or iscorrect(p): return p
 
-	#u가 균형잡힌 괄호 문자열이 될 때까지 2개씩 추가해서 u,v 나누기
 	for i in range(2,len(p)+1,2):
 		if isbalanced(p[0:i]):
 			u=p[0:i]
@@ -36,10 +32,8 @@ def solution(p):
 			break
 
 	if iscorrect(u):
-		#u가 올바른 괄호 문자열일 때
 		answer+=u+solution(v)
 	else:
-		#u가 올바른 괄호 문자열이 아닐 때
 		answer+='('+solution(v)+')'
 		for c in u[1:-1]:
 			if c=='(': answer+=')'

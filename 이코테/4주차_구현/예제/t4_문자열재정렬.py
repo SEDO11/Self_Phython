@@ -4,15 +4,12 @@ import time
 
 # filter 사용
 a = input()
-stime = time.time()
 b = list(filter(str.isalpha, a))
 b.sort()
 b =''.join(b)
 cnt = len(list(filter(str.isdigit, a)))
 c = str(sum(list(map(int, filter(str.isdigit, a)))))
 print(b+(c if cnt > 0 else '')) # 숫자가 입력되지 않으면 출력하지 않음
-etime = time.time()
-print(etime-stime)
 
 # filter 사용 x
 s = input()
