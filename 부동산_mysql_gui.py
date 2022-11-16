@@ -89,7 +89,7 @@ class Cont1:
 
 root = Tk()
 root.geometry('1000x500')
-root.title('완전한 GUI 프로그래밍')
+root.title('천안시 부동산 거래가 확인 프로그램')
 root.resizable(False, False)
 
 edtFrame = Frame(root)
