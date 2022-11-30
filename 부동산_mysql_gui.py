@@ -4,21 +4,14 @@ import pymysql
 from tkinter import *
 import tkinter.ttk as ttk
 
-values = ['', '서북구', '동남구']
+values = ['', '두정동', '백석동', '성거읍', '구성동', '다가동', '목천읍', '전체']
 
 d = {'': [''],
-    '서북구': ['두정동', '백석동', '성거읍'],
-    '동남구': ['구성동', '다가동', '목천읍']}
-
-li = {'': [''],
     '성거읍': ['문덕리', '신월리'],
     '목천읍': ['삼성리', '서리'],}
 
-def changeGu():
-    container1.readonly_combobox2["values"] = d[container1.readonly_combobox1.get()]
-    
 def changeDong():
-    container1.readonly_combobox3["values"] = li[container1.readonly_combobox2.get()]
+    container1.readonly_combobox2["values"] = d[container1.readonly_combobox1.get()]
 
 def selectData():
     data1, data2, data3, data4 = [], [], [], []
@@ -91,26 +84,19 @@ class Cont2:
         self.inframe = Frame(frame)
         self.inframe.pack(fill=X, anchor=N)
         # 읽기만 되는 combobox
-        self.label1 = Label(self.inframe, width=5, text='구')
+        self.label1 = Label(self.inframe, width=5, text='읍면동')
         self.label1.pack(side=LEFT)
         self.readonly_combobox1 = ttk.Combobox(self.inframe, width=5, values=values, state='readonly')
         self.readonly_combobox1.current(0) # 0번째 인덱스값 선택
         self.readonly_combobox1.pack(side=LEFT)
-        self.btnGu = Button(self.inframe, text='선택', command=changeGu)
+        self.btnGu = Button(self.inframe, text='선택', command=changeDong)
         self.btnGu.pack(side=LEFT, padx=5, pady=10)
 
-        self.label2 = Label(self.inframe, width=5, text='읍면동')
+        self.label2 = Label(self.inframe, width=5, text='리')
         self.label2.pack(side=LEFT)
         self.readonly_combobox2 = ttk.Combobox(self.inframe, width=5, values=d[self.readonly_combobox1.get()], state='readonly')
         self.readonly_combobox2.current(0) # 0번째 인덱스값 선택
         self.readonly_combobox2.pack(side=LEFT)
-        self.btnDong = Button(self.inframe, text='선택', command=changeDong)
-        self.btnDong.pack(side=LEFT, padx=5, pady=10)
-
-        self.label3 = Label(self.inframe, width=5, text='리')
-        self.label3.pack(side=LEFT)
-        self.readonly_combobox3 = ttk.Combobox(self.inframe, width=5, values=li[self.readonly_combobox2.get() if li.get(self.readonly_combobox2.get()) != None else ''], state='readonly')
-        self.readonly_combobox3.pack(side=LEFT)
 
         self.label4 = Label(self.inframe, width=5, text='번지')
         self.label4.pack(side=LEFT)
@@ -134,19 +120,30 @@ root.resizable(False, False)
 
 edtFrame = Frame(root)
 edtFrame.pack()
+labelFrame = Frame(root)
+labelFrame.pack(side = TOP, fill=BOTH)
 listFrame = Frame(root)
 listFrame.pack(side = BOTTOM, fill=BOTH, expand=1)
 
 container1 = Cont1(edtFrame)
 container2 = Cont2(edtFrame)
 
-listData1 = Listbox(listFrame, bg='yellowgreen')
+label1 = Label(labelFrame, text='아파트이름')
+label1.pack(side=LEFT, fill=BOTH, expand=1)
+label2 = Label(labelFrame, text='가격')
+label2.pack(side=LEFT, fill=BOTH, expand=1)
+label3 = Label(labelFrame, text='건축연도')
+label3.pack(side=LEFT, fill=BOTH, expand=1)
+label4 = Label(labelFrame, text='근처역')
+label4.pack(side=LEFT, fill=BOTH, expand=1)
+
+listData1 = Listbox(listFrame, bg='#AAAAAA')
 listData1.pack(side=LEFT, fill=BOTH, expand=1)
-listData2 = Listbox(listFrame, bg='#888888')
+listData2 = Listbox(listFrame, bg='#AAAAAA')
 listData2.pack(side=LEFT, fill=BOTH, expand=1)
-listData3 = Listbox(listFrame, bg='yellow')
+listData3 = Listbox(listFrame, bg='#AAAAAA')
 listData3.pack(side=LEFT, fill=BOTH, expand=1)
-listData4 = Listbox(listFrame, bg='#AA00AA')
+listData4 = Listbox(listFrame, bg='#AAAAAA')
 listData4.pack(side=LEFT, fill=BOTH, expand=1)
 
 root.mainloop()
