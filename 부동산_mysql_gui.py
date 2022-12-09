@@ -40,7 +40,35 @@ def selectData():
 
 class Cont1:
     def __init__(self, frame):
-        global select
+        self.inframe = Frame(frame)
+        self.inframe.pack(fill=X, anchor=N)
+        # 읽기만 되는 combobox
+
+        self.label2 = Label(self.inframe, width=5, text='읍면동')
+        self.label2.pack(side=LEFT)
+        self.readonly_combobox2 = ttk.Combobox(self.inframe, width=5, values=d[self.readonly_combobox1.get()], state='readonly')
+        self.readonly_combobox2.current(0) # 0번째 인덱스값 선택
+        self.readonly_combobox2.pack(side=LEFT)
+        self.btnDong = Button(self.inframe, text='선택', command=changeDong)
+        self.btnDong.pack(side=LEFT, padx=5, pady=10)
+
+        self.label4 = Label(self.inframe, width=5, text='번지')
+        self.label4.pack(side=LEFT)
+        self.edt4 = Entry(self.inframe, width=10)
+        self.edt4.pack(side=LEFT, padx=10, pady=10)
+        
+        self.label5 = Label(self.inframe, width=5, text='본번')
+        self.label5.pack(side=LEFT)
+        self.edt5 = Entry(self.inframe, width=10)
+        self.edt5.pack(side=LEFT, padx=10, pady=10)
+        
+        self.label6 = Label(self.inframe, width=5, text='부번')
+        self.label6.pack(side=LEFT)
+        self.edt6 = Entry(self.inframe, width=10)
+        self.edt6.pack(side=LEFT, padx=10, pady=10)
+        
+class Cont2:
+    def __init__(self, frame):
         self.inframe = Frame(frame)
         self.inframe.pack(fill=X, anchor=N)
         # 읽기만 되는 combobox
@@ -86,7 +114,7 @@ listFrame = Frame(root)
 listFrame.pack(side = BOTTOM, fill=BOTH, expand=1)
 
 container1 = Cont1(edtFrame)
-
+container2 = Cont2(edtFrame)
 
 label1 = Label(labelFrame, text='아파트이름')
 label1.pack(side=LEFT, fill=BOTH, expand=1)

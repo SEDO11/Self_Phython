@@ -10,4 +10,4 @@ cnt = sum(c)
 r = []
 
 def dfs(a, c):
-    
+    pass
