@@ -7,7 +7,7 @@ graph = collections.defaultdict(list)
 
 def dfs(a):
     while graph[a]:
-        dfs(graph.pop(a))
+        dfs(graph[a].pop())
     route.append(a)
 
 for a, b in sorted(tickets, reverse=True):
@@ -15,6 +15,4 @@ for a, b in sorted(tickets, reverse=True):
 
 route = []
 dfs("JFK")
-print(list(graph))
-print(type(graph))
 print(list(route[::-1]))
